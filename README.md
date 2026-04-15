@@ -7,6 +7,7 @@ This repo contains public-facing materials only:
 - release notes
 - roadmap highlights
 - setup and upgrade docs for licensed customers
+- legal and commercial policy docs
 
 ## Live Product
 - https://byteworthy.io
@@ -15,6 +16,11 @@ This repo contains public-facing materials only:
 Klienta source code is maintained in a private repository under `ByteWorthyLLC`.
 
 If you need licensed access for internal/company use, contact ByteWorthy through the website.
+
+## Commercial Docs
+- [EULA](./EULA.md)
+- [Terms](./TERMS.md)
+- [Sales and Access Flow](./SALES-FLOW.md)
 
 ## Security
 Please do not post vulnerabilities publicly. Report security issues privately:
