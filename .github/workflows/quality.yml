@@ -1,0 +1,43 @@
+name: Quality Gate
+
+on:
+  pull_request:
+  push:
+    branches: [main, master]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Detect unresolved merge markers
+        run: |
+          if grep -R -n -E '^(<<<<<<<|=======|>>>>>>>)' -- .; then
+            echo "Unresolved merge markers detected"
+            exit 1
+          fi
+
+      - name: Validate required public files
+        run: |
+          required=(README.md LICENSE EULA.md TERMS.md SECURITY.md SALES-FLOW.md llms.txt CHANGELOG.md ROADMAP.md site/index.html site/robots.txt site/sitemap.xml site/llms.txt)
+          for f in "${required[@]}"; do
+            if [[ ! -f "$f" ]]; then
+              echo "Missing required file: $f"
+              exit 1
+            fi
+          done
+
+      - name: Validate canonical repository references
+        run: |
+          grep -q "ByteWorthyLLC/klienta" README.md
+          grep -q "ByteWorthyLLC/klienta" site/llms.txt
+          grep -q "ByteWorthyLLC/klienta" llms.txt

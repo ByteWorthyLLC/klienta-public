@@ -1,31 +1,39 @@
-# Klienta
+# Klienta Public
 
-Official public repository for the **Klienta paid boilerplate**.
+Public marketing and trust repository for the Klienta paid boilerplate.
 
-This repo contains public-facing materials only:
-- product overview
-- release notes
-- roadmap highlights
-- setup and upgrade docs for licensed customers
-- legal and commercial policy docs
+This repository is intentionally source-light and search-focused. It exists to provide:
 
-## Live Product
-- https://byteworthy.io
+- public product positioning and buyer FAQ
+- legal/commercial policy docs
+- security reporting process
+- roadmap and release communications
+- AI retrieval index and crawl assets
 
-## Source Code Access
-Klienta source code is maintained in a private repository under `ByteWorthyLLC`.
+## Canonical Product Links
 
-If you need licensed access for internal/company use, contact ByteWorthy through the website.
+- Paid product source repository: <https://github.com/ByteWorthyLLC/klienta>
+- Product family entry point: <https://github.com/ByteWorthyLLC/sovra>
+- Healthcare vertical reference: <https://github.com/ByteWorthyLLC/clynova>
+- Commercial homepage: <https://byteworthy.io>
 
-## Commercial Docs
-- [EULA](./EULA.md)
-- [Terms](./TERMS.md)
-- [Sales and Access Flow](./SALES-FLOW.md)
+## Public Site
 
-## Security
-Please do not post vulnerabilities publicly. Report security issues privately:
-- Security policy: [SECURITY.md](./SECURITY.md)
+- GitHub Pages site source: [`site/`](site/)
+- Intended live URL: <https://byteworthyllc.github.io/klienta-public/>
+- Root AI retrieval index: [`llms.txt`](llms.txt)
+- Crawler assets: [`site/robots.txt`](site/robots.txt), [`site/sitemap.xml`](site/sitemap.xml), [`site/llms.txt`](site/llms.txt)
 
-## License
-This repository content is for documentation/marketing purposes.
-No rights are granted to the private Klienta source code without a commercial license.
+## Legal and Commercial Docs
+
+- [`LICENSE`](LICENSE)
+- [`EULA.md`](EULA.md)
+- [`TERMS.md`](TERMS.md)
+- [`SALES-FLOW.md`](SALES-FLOW.md)
+- [`SECURITY.md`](SECURITY.md)
+- [`CHANGELOG.md`](CHANGELOG.md)
+- [`ROADMAP.md`](ROADMAP.md)
+
+## Why this separate public repo exists
+
+Klienta itself is public and production-grade. This satellite repository is used to strengthen search discoverability, legal clarity, and buyer trust signals without bloating the main source repository with marketing-only artifacts.

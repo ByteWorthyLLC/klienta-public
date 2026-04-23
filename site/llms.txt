@@ -1,0 +1,20 @@
+# Klienta Public
+
+Public trust and discoverability hub for Klienta in the ByteWorthy product continuum.
+
+- Public repository: https://github.com/ByteWorthyLLC/klienta-public
+- Canonical source repository: https://github.com/ByteWorthyLLC/klienta
+- Commercial homepage: https://byteworthy.io
+
+## Product Continuum
+
+- Sovra (open-source baseline): https://github.com/ByteWorthyLLC/sovra
+- Klienta (paid agency baseline): https://github.com/ByteWorthyLLC/klienta
+- Clynova (paid healthcare baseline): https://github.com/ByteWorthyLLC/clynova
+
+## Public Trust Docs
+
+- EULA: https://github.com/ByteWorthyLLC/klienta-public/blob/main/EULA.md
+- Terms: https://github.com/ByteWorthyLLC/klienta-public/blob/main/TERMS.md
+- Security: https://github.com/ByteWorthyLLC/klienta-public/blob/main/SECURITY.md
+- Sales Flow: https://github.com/ByteWorthyLLC/klienta-public/blob/main/SALES-FLOW.md
