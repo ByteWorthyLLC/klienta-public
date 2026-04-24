@@ -1,23 +1,20 @@
-# Klienta Public
+# Klienta Public Site Mirror
 
-Public trust and commercial policy satellite for Klienta.
+GitHub Pages mirror for Klienta trust and discoverability references.
 
-- Repository: https://github.com/ByteWorthyLLC/klienta-public
-- Klienta product page: https://byteworthy.io/boilerplates/klienta
+- Mirror URL: https://byteworthyllc.github.io/klienta-public/
+- Canonical product page: https://byteworthy.io/boilerplates/klienta
 - Boilerplates hub: https://byteworthy.io/boilerplates
 - Services: https://byteworthy.io/services
 - Contact: https://byteworthy.io/contact
-- GitHub Pages mirror: https://byteworthyllc.github.io/klienta-public/
 
-## Source Repositories
+## Repository Links
+- Klienta Public: https://github.com/ByteWorthyLLC/klienta-public
 - Klienta: https://github.com/ByteWorthyLLC/klienta
 - Sovra: https://github.com/ByteWorthyLLC/sovra
 - Clynova: https://github.com/ByteWorthyLLC/clynova
 
-## Public Trust Docs
-- README: https://github.com/ByteWorthyLLC/klienta-public/blob/main/README.md
-- Site mirror index: https://github.com/ByteWorthyLLC/klienta-public/blob/main/site/index.html
-- Site mirror llms: https://github.com/ByteWorthyLLC/klienta-public/blob/main/site/llms.txt
+## Trust Docs
 - EULA: https://github.com/ByteWorthyLLC/klienta-public/blob/main/EULA.md
 - Terms: https://github.com/ByteWorthyLLC/klienta-public/blob/main/TERMS.md
 - Security: https://github.com/ByteWorthyLLC/klienta-public/blob/main/SECURITY.md

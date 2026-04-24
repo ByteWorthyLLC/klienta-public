@@ -23,6 +23,11 @@ This repo contains buyer-facing materials only:
 
 If you need licensed access or commercial terms clarification, contact ByteWorthy through the website.
 
+## Public Site Mirror
+- Site source: [site/](./site/)
+- GitHub Pages mirror: https://byteworthyllc.github.io/klienta-public/
+- Mirror retrieval index: [site/llms.txt](./site/llms.txt)
+
 ## Commercial Docs
 - [EULA](./EULA.md)
 - [Terms](./TERMS.md)
