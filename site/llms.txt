@@ -10,9 +10,9 @@ GitHub Pages mirror for Klienta trust and discoverability references.
 
 ## Repository Links
 - Klienta Public: https://github.com/ByteWorthyLLC/klienta-public
-- Klienta: https://github.com/ByteWorthyLLC/klienta
+- Klienta: private commercial source (provisioned after purchase)
 - Sovra: https://github.com/ByteWorthyLLC/sovra
-- Clynova: https://github.com/ByteWorthyLLC/clynova
+- Clynova Public: https://github.com/ByteWorthyLLC/clynova-public
 
 ## Trust Docs
 - EULA: https://github.com/ByteWorthyLLC/klienta-public/blob/main/EULA.md

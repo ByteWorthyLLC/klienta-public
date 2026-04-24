@@ -6,6 +6,6 @@ contact_links:
   - name: Security vulnerability
     url: mailto:security@byteworthy.io
     about: Report vulnerabilities privately.
-  - name: Product repository (Klienta)
-    url: https://github.com/ByteWorthyLLC/klienta
-    about: Source repository for the Klienta paid boilerplate.
+  - name: Klienta product page
+    url: https://byteworthy.io/boilerplates/klienta
+    about: Product overview, pricing, and commercial path.
