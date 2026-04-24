@@ -10,9 +10,9 @@ Public trust and commercial policy satellite for Klienta.
 - GitHub Pages mirror: https://byteworthyllc.github.io/klienta-public/
 
 ## Source Repositories
-- Klienta: https://github.com/ByteWorthyLLC/klienta
+- Klienta: private commercial source (provisioned after purchase)
 - Sovra: https://github.com/ByteWorthyLLC/sovra
-- Clynova: https://github.com/ByteWorthyLLC/clynova
+- Clynova Public: https://github.com/ByteWorthyLLC/clynova-public
 
 ## Public Trust Docs
 - README: https://github.com/ByteWorthyLLC/klienta-public/blob/main/README.md

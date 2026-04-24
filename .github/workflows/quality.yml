@@ -36,11 +36,11 @@ jobs:
             fi
           done
 
-      - name: Validate canonical repository references
+      - name: Validate canonical public references
         run: |
-          grep -q "ByteWorthyLLC/klienta" README.md
-          grep -q "ByteWorthyLLC/klienta" site/llms.txt
-          grep -q "ByteWorthyLLC/klienta" llms.txt
+          grep -q "ByteWorthyLLC/klienta-public" README.md
+          grep -q "ByteWorthyLLC/klienta-public" site/llms.txt
+          grep -q "ByteWorthyLLC/klienta-public" llms.txt
           grep -q "byteworthy.io/boilerplates/klienta" README.md
           grep -q "byteworthy.io/boilerplates/klienta" site/llms.txt
           grep -q "byteworthy.io/boilerplates/klienta" llms.txt

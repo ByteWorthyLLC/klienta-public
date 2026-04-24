@@ -17,13 +17,14 @@ This repo contains buyer-facing materials only:
 - Clynova product page: https://byteworthy.io/boilerplates/clynova
 
 ## Source Code Access
-- Klienta source repository: https://github.com/ByteWorthyLLC/klienta
+- Klienta source code: private commercial repository (provisioned after purchase)
 - Sovra repository: https://github.com/ByteWorthyLLC/sovra
-- Clynova repository: https://github.com/ByteWorthyLLC/clynova
+- Clynova Public repository: https://github.com/ByteWorthyLLC/clynova-public
 
 If you need licensed access or commercial terms clarification, contact ByteWorthy through the website.
 
 ## Public Site Mirror
+- Public repository: https://github.com/ByteWorthyLLC/klienta-public
 - Site source: [site/](./site/)
 - GitHub Pages mirror: https://byteworthyllc.github.io/klienta-public/
 - Mirror retrieval index: [site/llms.txt](./site/llms.txt)
