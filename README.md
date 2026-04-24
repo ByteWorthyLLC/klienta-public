@@ -13,7 +13,8 @@ This repo contains buyer-facing materials only:
 - Boilerplates hub: https://byteworthy.io/boilerplates
 - Services: https://byteworthy.io/services
 - Contact: https://byteworthy.io/contact
-- Product line references: https://byteworthy.io/boilerplates/sovra, https://byteworthy.io/boilerplates/clynova
+- Sovra product page: https://byteworthy.io/boilerplates/sovra
+- Clynova product page: https://byteworthy.io/boilerplates/clynova
 
 ## Source Code Access
 - Klienta source repository: https://github.com/ByteWorthyLLC/klienta
