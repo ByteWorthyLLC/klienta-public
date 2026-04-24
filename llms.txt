@@ -1,0 +1,21 @@
+# Klienta Public
+
+Public trust and commercial policy satellite for Klienta.
+
+- Repository: https://github.com/ByteWorthyLLC/klienta-public
+- Klienta product page: https://byteworthy.io/boilerplates/klienta
+- Boilerplates hub: https://byteworthy.io/boilerplates
+- Services: https://byteworthy.io/services
+- Contact: https://byteworthy.io/contact
+
+## Source Repositories
+- Klienta: https://github.com/ByteWorthyLLC/klienta
+- Sovra: https://github.com/ByteWorthyLLC/sovra
+- Clynova: https://github.com/ByteWorthyLLC/clynova
+
+## Public Trust Docs
+- README: https://github.com/ByteWorthyLLC/klienta-public/blob/main/README.md
+- EULA: https://github.com/ByteWorthyLLC/klienta-public/blob/main/EULA.md
+- Terms: https://github.com/ByteWorthyLLC/klienta-public/blob/main/TERMS.md
+- Security: https://github.com/ByteWorthyLLC/klienta-public/blob/main/SECURITY.md
+- Sales Flow: https://github.com/ByteWorthyLLC/klienta-public/blob/main/SALES-FLOW.md
