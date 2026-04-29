@@ -168,6 +168,7 @@
       border-color: var(--amber);
       background: var(--amber-light);
     }
+    .btn:active { transform: scale(0.97) !important; transition-duration: 60ms !important; }
     .btn-lg { padding: 16px 32px; font-size: 16px; }
 
     .hero { position: relative; padding: 90px 0 110px; overflow: hidden; }
@@ -342,6 +343,10 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 18px;
+      transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .feature-card:hover .feature-icon { transform: scale(1.1); }
     }
     .feature-icon svg { width: 22px; height: 22px; }
     .feature-title {
