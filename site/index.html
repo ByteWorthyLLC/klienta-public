@@ -3,73 +3,246 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Klienta Public | Paid White-Label Client Portal Boilerplate</title>
+    <title>Klienta — White-Label Client Portal Boilerplate for AI Agencies</title>
     <meta
       name="description"
-      content="Public marketing and trust hub for Klienta, the paid white-label client portal boilerplate for AI agencies by ByteWorthy."
+      content="Production-ready client portal boilerplate for AI agencies. Multi-tenant Next.js + Supabase + Stripe. Licensed once, self-hosted. Ships in 2 weeks."
     />
     <meta name="robots" content="index,follow,max-image-preview:large" />
-    <link rel="canonical" href="https://byteworthy.io/boilerplates/klienta" />
+    <link rel="canonical" href="https://byteworthy.io/boilerplates/klienta" /><!-- nosemgrep: html.security.audit.missing-integrity.missing-integrity -->
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://byteworthyllc.github.io/klienta-public/" />
+    <meta property="og:title" content="Klienta — White-Label Client Portal Boilerplate for AI Agencies" />
+    <meta property="og:description" content="Production-ready client portal boilerplate for AI agencies. Multi-tenant Next.js + Supabase + Stripe. Licensed once, self-hosted. Ships in 2 weeks." />
+    <meta property="og:image" content="https://raw.githubusercontent.com/ByteWorthyLLC/klienta-public/main/.github/assets/klienta-hero.svg" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Klienta — White-Label Client Portal Boilerplate for AI Agencies" />
+    <meta name="twitter:description" content="Production-ready client portal boilerplate for AI agencies. Multi-tenant Next.js + Supabase + Stripe. Licensed once, self-hosted. Ships in 2 weeks." />
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/ByteWorthyLLC/klienta-public/main/.github/assets/klienta-hero.svg" />
+
     <style>
       :root {
-        --bg: #f4f6ff;
+        --bg: #FAFAF7;
         --card: #ffffff;
-        --ink: #0f172a;
+        --ink: #0F172A;
         --muted: #475569;
-        --line: #dbe3ff;
-        --accent: #1d4ed8;
+        --line: #E8E4DC;
+        --accent: #D4A574;
+        --accent-dark: #B8875A;
+        --accent-bg: #FDF6EC;
+        --byteworthy: #2563EB;
       }
       * { box-sizing: border-box; }
       body {
         margin: 0;
         font-family: "Segoe UI", "Avenir Next", "Helvetica Neue", sans-serif;
-        background: radial-gradient(circle at 15% 10%, #dbeafe 0%, var(--bg) 45%, #eef2ff 100%);
+        background: var(--bg);
         color: var(--ink);
-        line-height: 1.55;
+        line-height: 1.6;
       }
-      .wrap { max-width: 980px; margin: 0 auto; padding: 40px 20px 60px; }
+      .wrap { max-width: 1000px; margin: 0 auto; padding: 48px 24px 72px; }
+
+      /* Hero */
       .hero {
-        background: var(--card);
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        padding: 30px;
-        box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+        background: var(--ink);
+        border-radius: 20px;
+        padding: 48px 40px;
+        color: #fff;
+        margin-bottom: 48px;
       }
-      h1 { margin: 0 0 12px; font-size: clamp(1.8rem, 4vw, 2.5rem); }
-      h2 { margin: 28px 0 10px; font-size: 1.3rem; }
-      p { margin: 10px 0; color: var(--muted); }
-      ul { margin: 10px 0 0; padding-left: 20px; color: var(--muted); }
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 14px;
-        margin-top: 18px;
+      .hero-eyebrow {
+        display: inline-block;
+        background: var(--accent-bg);
+        color: var(--accent-dark);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 4px 12px;
+        border-radius: 6px;
+        margin-bottom: 20px;
+        font-family: "Courier New", monospace;
       }
-      .card {
-        background: var(--card);
-        border: 1px solid var(--line);
-        border-radius: 14px;
-        padding: 16px;
+      .hero h1 {
+        margin: 0 0 16px;
+        font-size: clamp(1.9rem, 4.5vw, 2.8rem);
+        line-height: 1.2;
+        color: #fff;
       }
-      a { color: var(--accent); text-decoration: none; }
-      a:hover { text-decoration: underline; }
-      .buttons { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+      .hero h1 span { color: var(--accent); }
+      .hero p {
+        margin: 0 0 28px;
+        color: #94A3B8;
+        font-size: 1.05rem;
+        max-width: 640px;
+      }
+      .buttons { display: flex; flex-wrap: wrap; gap: 12px; }
       .btn {
         display: inline-block;
         border-radius: 10px;
-        border: 1px solid #1e40af;
-        background: #1d4ed8;
-        color: #ffffff;
-        padding: 10px 14px;
-        font-weight: 600;
+        padding: 12px 22px;
+        font-weight: 700;
+        font-size: 0.97rem;
+        text-decoration: none;
+        transition: opacity 0.15s;
       }
-      .btn.alt {
-        background: #ffffff;
-        color: #1e3a8a;
-        border-color: #bfdbfe;
+      .btn:hover { opacity: 0.88; text-decoration: none; }
+      .btn-primary {
+        background: var(--accent);
+        color: var(--ink);
+        border: 1px solid var(--accent-dark);
       }
-      footer { margin-top: 36px; color: var(--muted); font-size: 0.92rem; }
+      .btn-secondary {
+        background: transparent;
+        color: #CBD5E1;
+        border: 1px solid #334155;
+      }
+
+      /* Sections */
+      h2 {
+        font-size: 1.25rem;
+        margin: 0 0 18px;
+        color: var(--ink);
+      }
+      section { margin-bottom: 48px; }
+      a { color: var(--accent-dark); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      /* Feature grid */
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+      }
+      .feature-card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 22px 20px;
+      }
+      .feature-card .icon {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+        font-family: monospace;
+        color: var(--accent-dark);
+        font-weight: 700;
+        font-style: normal;
+      }
+      .feature-card strong {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 0.97rem;
+        color: var(--ink);
+      }
+      .feature-card p {
+        margin: 0;
+        font-size: 0.88rem;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      /* Comparison table */
+      .compare-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.93rem;
+        background: var(--card);
+        border-radius: 14px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+      }
+      .compare-table thead {
+        background: var(--accent-bg);
+      }
+      .compare-table th {
+        padding: 12px 16px;
+        text-align: left;
+        font-size: 0.82rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--accent-dark);
+      }
+      .compare-table td {
+        padding: 11px 16px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        vertical-align: top;
+      }
+      .compare-table td:first-child {
+        color: var(--ink);
+        font-weight: 500;
+        white-space: nowrap;
+      }
+      .compare-table .highlight td {
+        background: var(--accent-bg);
+      }
+      .check { color: #16A34A; font-weight: 700; }
+      .cross { color: #DC2626; font-weight: 700; }
+
+      /* Stack / boilerplates */
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+      }
+      .product-card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 22px 20px;
+      }
+      .product-card.active {
+        border-color: var(--accent);
+        background: var(--accent-bg);
+      }
+      .product-card strong {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 0.97rem;
+        color: var(--ink);
+      }
+      .product-card p {
+        margin: 0 0 10px;
+        font-size: 0.88rem;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      /* Docs list */
+      .doc-list { list-style: none; padding: 0; margin: 0; }
+      .doc-list li {
+        padding: 10px 0;
+        border-bottom: 1px solid var(--line);
+        font-size: 0.93rem;
+      }
+      .doc-list li:last-child { border-bottom: none; }
+      .doc-list li::before {
+        content: "→ ";
+        color: var(--accent-dark);
+        font-weight: 700;
+      }
+
+      /* Footer */
+      footer {
+        margin-top: 48px;
+        padding-top: 24px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.88rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: space-between;
+        align-items: center;
+      }
+      footer a { color: var(--muted); }
     </style>
+
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -91,67 +264,161 @@
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web",
         "url": "https://byteworthy.io/boilerplates/klienta",
-        "description": "Paid white-label client portal boilerplate for AI agencies with multi-tenant operations, usage billing, and onboarding workflows."
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "USD",
+          "description": "One-time commercial license. Source code included. Self-hosted."
+        },
+        "description": "White-label client portal boilerplate for AI agencies. Multi-tenant Next.js + Supabase + Stripe. Per-tenant agent runtime. Licensed once, self-hosted. Ships in 2 weeks.",
+        "creator": {
+          "@type": "Organization",
+          "name": "ByteWorthy",
+          "url": "https://byteworthy.io"
+        }
       }
     </script>
   </head>
   <body>
     <main class="wrap">
+
+      <!-- Hero -->
       <section class="hero">
-        <h1>Klienta Public</h1>
-        <p>
-          Public trust and discoverability hub for the Klienta paid boilerplate. This repository intentionally excludes private commercial source code.
-        </p>
+        <div class="hero-eyebrow">{byteworthy} boilerplate</div>
+        <h1>Ship a <span>white-label client portal</span> in 2 weeks.</h1>
+        <p>Klienta gives AI agencies a production-ready portal boilerplate — multi-tenant, Stripe billing, per-tenant agent runtime, white-label. Licensed once, self-hosted forever.</p>
         <div class="buttons">
-          <a class="btn" href="https://byteworthy.io/boilerplates/klienta">Canonical Product Page</a>
-          <a class="btn alt" href="https://byteworthy.io/contact">Sales and Licensing Contact</a>
+          <a class="btn btn-primary" href="https://byteworthy.io/boilerplates/klienta">Get a license &rarr;</a>
+          <a class="btn btn-secondary" href="https://github.com/ByteWorthyLLC/klienta-public/blob/main/EULA.md">View commercial docs</a>
         </div>
       </section>
 
+      <!-- Feature grid -->
       <section>
-        <h2>Product Continuum</h2>
-        <div class="grid">
-          <article class="card">
-            <strong>Sovra (Open-source baseline)</strong>
-            <p>General AI SaaS foundation with multi-tenant runtime and production controls.</p>
-            <a href="https://github.com/ByteWorthyLLC/sovra">Explore Sovra</a>
+        <h2>What ships in the boilerplate</h2>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <em class="icon">[auth]</em>
+            <strong>Multi-tenant auth</strong>
+            <p>Supabase Auth with row-level security policies — <code>tenant_id</code> on every table, JWT claims scoped per tenant at sign-in time.</p>
           </article>
-          <article class="card">
-            <strong>Klienta (Paid agency baseline)</strong>
-            <p>White-label client portals, usage billing, onboarding workflows, and commercial operations defaults.</p>
-            <a href="https://byteworthy.io/boilerplates/klienta">Explore Klienta</a>
+          <article class="feature-card">
+            <em class="icon">[brand]</em>
+            <strong>White-label branding</strong>
+            <p>Per-tenant logo, color palette, custom domain, and email-from address. Theme config resolved by middleware on every request.</p>
           </article>
-          <article class="card">
-            <strong>Clynova (Paid healthcare baseline)</strong>
-            <p>FHIR/HL7/X12 interoperability and PHI-oriented controls for healthcare launch paths.</p>
-            <a href="https://byteworthy.io/boilerplates/clynova">Explore Clynova</a>
+          <article class="feature-card">
+            <em class="icon">[billing]</em>
+            <strong>Stripe billing</strong>
+            <p>Stripe Customer + Subscription created per tenant. Metered usage hooks for agent invocations. Billing portal embed included.</p>
+          </article>
+          <article class="feature-card">
+            <em class="icon">[agents]</em>
+            <strong>Per-tenant agent runtime</strong>
+            <p>Isolated task queues and API key vault per tenant. Pluggable invocation API — wire OpenAI, Anthropic, or a custom runner without touching auth or billing.</p>
           </article>
         </div>
       </section>
 
+      <!-- Comparison -->
       <section>
-        <h2>Commercial and Trust Docs</h2>
-        <ul>
+        <h2>Klienta vs building from scratch</h2>
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th>Building from scratch</th>
+              <th>With Klienta</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Multi-tenant auth + RLS</td>
+              <td>Auth0 + custom Postgres policies</td>
+              <td><span class="check">✓</span> Supabase Auth + shipped RLS migrations</td>
+            </tr>
+            <tr>
+              <td>Per-tenant billing</td>
+              <td>Stripe integration + webhook mapping</td>
+              <td><span class="check">✓</span> Wired per-tenant, webhooks handled</td>
+            </tr>
+            <tr>
+              <td>White-label branding</td>
+              <td>CSS per deployment, DNS per client</td>
+              <td><span class="check">✓</span> Theme config table, middleware-resolved</td>
+            </tr>
+            <tr>
+              <td>Agent runtime per tenant</td>
+              <td>Custom queue + secrets isolation</td>
+              <td><span class="check">✓</span> Isolated queues + API key vault</td>
+            </tr>
+            <tr>
+              <td>Deliverables + approval flows</td>
+              <td>Build from scratch</td>
+              <td><span class="check">✓</span> Ships in boilerplate</td>
+            </tr>
+            <tr class="highlight">
+              <td>Time to first paying client tenant</td>
+              <td><span class="cross">8+ weeks</span></td>
+              <td><span class="check">2 weeks</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Who it is for -->
+      <section>
+        <h2>Who this is for</h2>
+        <div class="feature-card" style="max-width:680px">
+          <p style="margin:0; color:#0F172A; font-size:0.97rem; line-height:1.7;">
+            AI agencies billing 3+ clients monthly who currently deliver work by email or shared Drive. Each client needs a branded portal to receive deliverables, track project status, sign off on work, and interact with agents.
+            <br><br>
+            <strong>Not the right fit:</strong> Single-tenant SaaS products, consumer-facing apps, or internal tooling without external clients.
+          </p>
+        </div>
+      </section>
+
+      <!-- ByteWorthy boilerplate family -->
+      <section>
+        <h2>The ByteWorthy boilerplate family</h2>
+        <div class="product-grid">
+          <article class="product-card">
+            <strong>Sovra</strong>
+            <p>General AI SaaS foundation — multi-tenant runtime, auth, and billing baseline.</p>
+            <a href="https://github.com/ByteWorthyLLC/sovra">Open source &rarr;</a>
+          </article>
+          <article class="product-card active">
+            <strong>Klienta &nbsp;<span style="font-size:0.78rem;font-weight:400;color:var(--accent-dark);">you are here</span></strong>
+            <p>White-label client portals for AI agencies — multi-tenant, Stripe, agent runtime.</p>
+            <a href="https://byteworthy.io/boilerplates/klienta">Commercial license &rarr;</a>
+          </article>
+          <article class="product-card">
+            <strong>Clynova</strong>
+            <p>Healthcare-grade SaaS — FHIR/HL7/X12 interoperability and PHI controls.</p>
+            <a href="https://byteworthy.io/boilerplates/clynova">Commercial license &rarr;</a>
+          </article>
+        </div>
+      </section>
+
+      <!-- Commercial docs -->
+      <section>
+        <h2>Commercial and trust docs</h2>
+        <ul class="doc-list">
           <li><a href="https://github.com/ByteWorthyLLC/klienta-public/blob/main/EULA.md">Commercial EULA</a></li>
           <li><a href="https://github.com/ByteWorthyLLC/klienta-public/blob/main/TERMS.md">Commercial Terms</a></li>
-          <li><a href="https://github.com/ByteWorthyLLC/klienta-public/blob/main/SECURITY.md">Security Policy</a></li>
           <li><a href="https://github.com/ByteWorthyLLC/klienta-public/blob/main/SALES-FLOW.md">Sales and Access Flow</a></li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Discoverability Assets</h2>
-        <ul>
-          <li><a href="./robots.txt">robots.txt</a></li>
-          <li><a href="./sitemap.xml">sitemap.xml</a></li>
-          <li><a href="./llms.txt">llms.txt</a></li>
-          <li><a href="https://byteworthy.io/github">ByteWorthy GitHub index</a></li>
+          <li><a href="https://github.com/ByteWorthyLLC/klienta-public/blob/main/SECURITY.md">Security Policy</a></li>
         </ul>
       </section>
 
       <footer>
-        <p>Klienta Public is marketing and trust documentation only. Source-code licensing is governed by Klienta commercial terms.</p>
+        <span>Klienta is a commercial product by <a href="https://byteworthy.io">ByteWorthy</a>. Source code is licensed, not open source.</span>
+        <span>
+          <a href="./robots.txt">robots.txt</a> &nbsp;&middot;&nbsp;
+          <a href="./sitemap.xml">sitemap.xml</a> &nbsp;&middot;&nbsp;
+          <a href="./llms.txt">llms.txt</a>
+        </span>
       </footer>
+
     </main>
   </body>
 </html>
