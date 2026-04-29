@@ -1,424 +1,877 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Klienta: White-Label Client Portal Boilerplate for AI Agencies</title>
-    <meta
-      name="description"
-      content="Production-ready client portal boilerplate for AI agencies. Multi-tenant Next.js + Supabase + Stripe. Licensed once, self-hosted. Ships in 2 weeks."
-    />
-    <meta name="robots" content="index,follow,max-image-preview:large" />
-    <link rel="canonical" href="https://byteworthy.io/boilerplates/klienta" /><!-- nosemgrep: html.security.audit.missing-integrity.missing-integrity -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Klienta: White-Label Client Portal Boilerplate for AI Agencies</title>
+  <meta name="description" content="White-label portal boilerplate for AI product teams. Auth, billing, roles, file uploads. Production-ready from day one. Ships in 2 weeks." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://byteworthy.io/boilerplates/klienta" /><!-- nosemgrep: html.security.audit.missing-integrity.missing-integrity -->
+  <meta name="theme-color" content="#D4A574" />
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://byteworthyllc.github.io/klienta-public/" />
-    <meta property="og:title" content="Klienta: White-Label Client Portal Boilerplate for AI Agencies" />
-    <meta property="og:description" content="Production-ready client portal boilerplate for AI agencies. Multi-tenant Next.js + Supabase + Stripe. Licensed once, self-hosted. Ships in 2 weeks." />
-    <meta property="og:image" content="https://raw.githubusercontent.com/ByteWorthyLLC/klienta-public/main/.github/assets/klienta-hero.svg" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://byteworthyllc.github.io/klienta-public/" />
+  <meta property="og:title" content="Klienta: Ship your client portal in 2 weeks" />
+  <meta property="og:description" content="White-label portal boilerplate for AI product teams. Auth, billing, roles, file uploads. Production-ready from day one." />
+  <meta property="og:site_name" content="Klienta" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/ByteWorthyLLC/klienta-public/main/.github/assets/klienta-hero.svg" />
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Klienta: White-Label Client Portal Boilerplate for AI Agencies" />
-    <meta name="twitter:description" content="Production-ready client portal boilerplate for AI agencies. Multi-tenant Next.js + Supabase + Stripe. Licensed once, self-hosted. Ships in 2 weeks." />
-    <meta name="twitter:image" content="https://raw.githubusercontent.com/ByteWorthyLLC/klienta-public/main/.github/assets/klienta-hero.svg" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Klienta: Ship your client portal in 2 weeks" />
+  <meta name="twitter:description" content="White-label portal boilerplate for AI product teams. Auth, billing, roles, file uploads. Production-ready from day one." />
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/ByteWorthyLLC/klienta-public/main/.github/assets/klienta-hero.svg" />
 
-    <style>
-      :root {
-        --bg: #FAFAF7;
-        --card: #ffffff;
-        --ink: #0F172A;
-        --muted: #475569;
-        --line: #E8E4DC;
-        --accent: #D4A574;
-        --accent-dark: #B8875A;
-        --accent-bg: #FDF6EC;
-        --byteworthy: #2563EB;
-      }
-      * { box-sizing: border-box; }
-      body {
-        margin: 0;
-        font-family: "Segoe UI", "Avenir Next", "Helvetica Neue", sans-serif;
-        background: var(--bg);
-        color: var(--ink);
-        line-height: 1.6;
-      }
-      .wrap { max-width: 1000px; margin: 0 auto; padding: 48px 24px 72px; }
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><!-- nosemgrep: html.security.audit.missing-integrity.missing-integrity -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><!-- nosemgrep: html.security.audit.missing-integrity.missing-integrity -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" /><!-- nosemgrep: html.security.audit.missing-integrity.missing-integrity -->
 
-      /* Hero */
-      .hero {
-        background: var(--ink);
-        border-radius: 20px;
-        padding: 48px 40px;
-        color: #fff;
-        margin-bottom: 48px;
-      }
-      .hero-eyebrow {
-        display: inline-block;
-        background: var(--accent-bg);
-        color: var(--accent-dark);
-        font-size: 0.78rem;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        padding: 4px 12px;
-        border-radius: 6px;
-        margin-bottom: 20px;
-        font-family: "Courier New", monospace;
-      }
-      .hero h1 {
-        margin: 0 0 16px;
-        font-size: clamp(1.9rem, 4.5vw, 2.8rem);
-        line-height: 1.2;
-        color: #fff;
-      }
-      .hero h1 span { color: var(--accent); }
-      .hero p {
-        margin: 0 0 28px;
-        color: #94A3B8;
-        font-size: 1.05rem;
-        max-width: 640px;
-      }
-      .buttons { display: flex; flex-wrap: wrap; gap: 12px; }
-      .btn {
-        display: inline-block;
-        border-radius: 10px;
-        padding: 12px 22px;
-        font-weight: 700;
-        font-size: 0.97rem;
-        text-decoration: none;
-        transition: opacity 0.15s;
-      }
-      .btn:hover { opacity: 0.88; text-decoration: none; }
-      .btn-primary {
-        background: var(--accent);
-        color: var(--ink);
-        border: 1px solid var(--accent-dark);
-      }
-      .btn-secondary {
-        background: transparent;
-        color: #CBD5E1;
-        border: 1px solid #334155;
-      }
+  <style>
+    :root {
+      --amber: #D4A574;
+      --amber-dark: #B8875A;
+      --amber-light: #FDF6EC;
+      --bg: #FAFAF7;
+      --ink: #0F172A;
+      --ink-2: #475569;
+      --muted: #94A3B8;
+      --line: #E5E0D6;
+      --white: #FFFFFF;
+      --green: #16A34A;
+      --radius: 14px;
+      --radius-lg: 22px;
+      --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.06);
+      --max: 1180px;
+    }
 
-      /* Sections */
-      h2 {
-        font-size: 1.25rem;
-        margin: 0 0 18px;
-        color: var(--ink);
-      }
-      section { margin-bottom: 48px; }
-      a { color: var(--accent-dark); text-decoration: none; }
-      a:hover { text-decoration: underline; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
 
-      /* Feature grid */
-      .feature-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 16px;
-      }
-      .feature-card {
-        background: var(--card);
-        border: 1px solid var(--line);
-        border-radius: 14px;
-        padding: 22px 20px;
-      }
-      .feature-card .icon {
-        font-size: 1.4rem;
-        margin-bottom: 10px;
-        font-family: monospace;
-        color: var(--accent-dark);
-        font-weight: 700;
-        font-style: normal;
-      }
-      .feature-card strong {
-        display: block;
-        margin-bottom: 6px;
-        font-size: 0.97rem;
-        color: var(--ink);
-      }
-      .feature-card p {
-        margin: 0;
-        font-size: 0.88rem;
-        color: var(--muted);
-        line-height: 1.5;
-      }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
 
-      /* Comparison table */
-      .compare-table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.93rem;
-        background: var(--card);
-        border-radius: 14px;
-        overflow: hidden;
-        border: 1px solid var(--line);
-      }
-      .compare-table thead {
-        background: var(--accent-bg);
-      }
-      .compare-table th {
-        padding: 12px 16px;
-        text-align: left;
-        font-size: 0.82rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
-        color: var(--accent-dark);
-      }
-      .compare-table td {
-        padding: 11px 16px;
-        border-top: 1px solid var(--line);
-        color: var(--muted);
-        vertical-align: top;
-      }
-      .compare-table td:first-child {
-        color: var(--ink);
-        font-weight: 500;
-        white-space: nowrap;
-      }
-      .compare-table .highlight td {
-        background: var(--accent-bg);
-      }
-      .check { color: #16A34A; font-weight: 700; }
-      .cross { color: #DC2626; font-weight: 700; }
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0);    }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes ambientPulse {
+      0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+      50%      { opacity: 0.7; transform: translate(-50%, -50%) scale(1.06); }
+    }
 
-      /* Stack / boilerplates */
-      .product-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 16px;
-      }
-      .product-card {
-        background: var(--card);
-        border: 1px solid var(--line);
-        border-radius: 14px;
-        padding: 22px 20px;
-      }
-      .product-card.active {
-        border-color: var(--accent);
-        background: var(--accent-bg);
-      }
-      .product-card strong {
-        display: block;
-        margin-bottom: 6px;
-        font-size: 0.97rem;
-        color: var(--ink);
-      }
-      .product-card p {
-        margin: 0 0 10px;
-        font-size: 0.88rem;
-        color: var(--muted);
-        line-height: 1.5;
-      }
+    .hero-eyebrow { animation: fadeSlideUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both; }
+    .hero-title   { animation: fadeSlideUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both; }
+    .hero-sub     { animation: fadeSlideUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both; }
+    .hero-cta     { animation: fadeSlideUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both; }
+    .hero-proof   { animation: fadeSlideUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both; }
 
-      /* Docs list */
-      .doc-list { list-style: none; padding: 0; margin: 0; }
-      .doc-list li {
-        padding: 10px 0;
-        border-bottom: 1px solid var(--line);
-        font-size: 0.93rem;
+    .reveal { opacity: 0; transform: translateY(28px); }
+    .reveal.animate {
+      animation: fadeSlideUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s) both;
+    }
+
+    .feature-card.animate {
+      animation: fadeSlideUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s) both;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(250, 250, 247, 0.7);
+      backdrop-filter: saturate(160%) blur(12px);
+      -webkit-backdrop-filter: saturate(160%) blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 200ms ease, background 200ms ease;
+    }
+    .nav.scrolled {
+      background: rgba(250, 250, 247, 0.85);
+      border-bottom-color: var(--line);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .logo {
+      font-family: 'Courier New', 'JetBrains Mono', monospace;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--amber-dark);
+      letter-spacing: -0.01em;
+    }
+    .logo-brace { color: var(--amber); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .nav-link {
+      font-size: 14px;
+      color: var(--ink-2);
+      font-weight: 500;
+      transition: color 150ms ease;
+    }
+    .nav-link:hover { color: var(--ink); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 14.5px;
+      letter-spacing: -0.005em;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease, color 200ms ease, border-color 200ms ease;
+      will-change: transform;
+    }
+    .cta-primary {
+      background: var(--amber);
+      color: #2A1B0E;
+      box-shadow: 0 4px 14px rgba(212, 165, 116, 0.25);
+    }
+    .cta-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(212, 165, 116, 0.35);
+      background: var(--amber-dark);
+      color: var(--white);
+    }
+    .cta-secondary {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--line);
+    }
+    .cta-secondary:hover {
+      transform: translateY(-1px);
+      border-color: var(--amber);
+      background: var(--amber-light);
+    }
+    .btn-lg { padding: 16px 32px; font-size: 16px; }
+
+    .hero { position: relative; padding: 90px 0 110px; overflow: hidden; }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      width: 900px;
+      height: 900px;
+      background: radial-gradient(closest-side, rgba(212, 165, 116, 0.12), rgba(212, 165, 116, 0) 70%);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      animation: ambientPulse 12s ease-in-out infinite;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(212, 165, 116, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212, 165, 116, 0.06) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse at 50% 40%, #000 30%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse at 50% 40%, #000 30%, transparent 75%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--amber-light);
+      border: 1px solid rgba(212, 165, 116, 0.3);
+      color: var(--amber-dark);
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--amber);
+      box-shadow: 0 0 0 4px rgba(212, 165, 116, 0.2);
+    }
+    .hero-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(40px, 6.5vw, 72px);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+      color: var(--ink);
+      margin: 0 0 24px;
+    }
+    .hero-title .accent {
+      color: var(--amber-dark);
+      position: relative;
+      display: inline-block;
+    }
+    .hero-title .accent::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 4px;
+      height: 8px;
+      background: var(--amber);
+      opacity: 0.25;
+      border-radius: 4px;
+      z-index: -1;
+    }
+    .hero-sub {
+      font-size: clamp(17px, 1.5vw, 20px);
+      color: var(--ink-2);
+      max-width: 640px;
+      margin: 0 auto 36px;
+      line-height: 1.55;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .hero-proof {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 13.5px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .hero-proof .pulse {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.18);
+    }
+
+    section { padding: 90px 0; }
+    .section-head {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 56px;
+    }
+    .section-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--amber-dark);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      margin: 0 0 14px;
+    }
+    .section-sub {
+      font-size: 17px;
+      color: var(--ink-2);
+      margin: 0;
+    }
+
+    .features {
+      background: var(--white);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .feature-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--amber);
+      border-radius: var(--radius);
+      padding: 28px 26px;
+      transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+      will-change: transform;
+    }
+    .feature-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(212, 165, 116, 0.18);
+      border-left-color: var(--amber-dark);
+    }
+    .feature-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--amber-light);
+      color: var(--amber-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+    .feature-icon svg { width: 22px; height: 22px; }
+    .feature-title {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin: 0 0 8px;
+    }
+    .feature-desc {
+      font-size: 14.5px;
+      color: var(--ink-2);
+      margin: 0;
+      line-height: 1.55;
+    }
+
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    .compare-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 32px 30px;
+    }
+    .compare-card.without { background: #FFFBFB; }
+    .compare-card.with {
+      border-top: 4px solid var(--amber);
+      box-shadow: var(--shadow-md);
+    }
+    .compare-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+    .compare-title {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .compare-card.with .compare-title { color: var(--amber-dark); }
+    .compare-time {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+    .compare-card.without .compare-time {
+      background: #FEE2E2;
+      color: #991B1B;
+    }
+    .compare-card.with .compare-time {
+      background: var(--amber-light);
+      color: var(--amber-dark);
+    }
+    .compare-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .compare-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      color: var(--ink-2);
+    }
+    .compare-list .mark {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .compare-list .x {
+      background: #FEE2E2;
+      color: #991B1B;
+    }
+    .compare-list .check {
+      background: rgba(22, 163, 74, 0.12);
+      color: var(--green);
+    }
+
+    .stack {
+      background: var(--white);
+      padding: 60px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .stack-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .stack-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 44px;
+      flex-wrap: wrap;
+    }
+    .stack-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--ink-2);
+      transition: color 200ms ease, transform 200ms ease;
+    }
+    .stack-item:hover {
+      color: var(--ink);
+      transform: translateY(-2px);
+    }
+    .stack-dot {
+      color: var(--amber);
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .pricing { padding: 110px 0; }
+    .pricing-card {
+      max-width: 780px;
+      margin: 0 auto;
+      background: linear-gradient(180deg, var(--white) 0%, var(--amber-light) 100%);
+      border: 1px solid rgba(212, 165, 116, 0.35);
+      border-radius: var(--radius-lg);
+      padding: 56px 48px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(212, 165, 116, 0.18);
+      position: relative;
+      overflow: hidden;
+    }
+    .pricing-card::before {
+      content: "";
+      position: absolute;
+      top: -120px;
+      right: -120px;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(closest-side, rgba(212, 165, 116, 0.35), transparent 70%);
+      pointer-events: none;
+    }
+    .pricing-badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--amber);
+      color: #2A1B0E;
+      margin-bottom: 22px;
+      position: relative;
+      z-index: 1;
+    }
+    .pricing-amount {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(48px, 7vw, 76px);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: var(--amber-dark);
+      line-height: 1;
+      margin: 0 0 8px;
+      position: relative;
+      z-index: 1;
+    }
+    .pricing-amount .per {
+      font-size: 0.4em;
+      color: var(--ink-2);
+      font-weight: 500;
+    }
+    .pricing-locked {
+      font-size: 14px;
+      color: var(--amber-dark);
+      font-weight: 600;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
+    }
+    .pricing-desc {
+      font-size: 16.5px;
+      color: var(--ink-2);
+      max-width: 480px;
+      margin: 0 auto 32px;
+      position: relative;
+      z-index: 1;
+    }
+    .pricing-cta { position: relative; z-index: 1; }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      padding: 44px 0 36px;
+      background: var(--white);
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+    .footer-brand {
+      font-family: 'Courier New', monospace;
+      font-weight: 700;
+      color: var(--ink-2);
+      font-size: 15px;
+    }
+    .footer-brand .brace { color: var(--amber); }
+    .footer-links {
+      display: flex;
+      gap: 22px;
+      font-size: 14px;
+      color: var(--ink-2);
+    }
+    .footer-links a { transition: color 150ms ease; }
+    .footer-links a:hover { color: var(--amber-dark); }
+
+    @media (max-width: 900px) {
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      section { padding: 70px 0; }
+      .hero { padding: 60px 0 80px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .compare-grid { grid-template-columns: 1fr; }
+      .nav-links { gap: 12px; }
+      .nav-link { display: none; }
+      .stack-row { gap: 22px; }
+      .stack-dot { display: none; }
+      .pricing-card { padding: 44px 26px; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
       }
-      .doc-list li:last-child { border-bottom: none; }
-      .doc-list li::before {
-        content: "→ ";
-        color: var(--accent-dark);
-        font-weight: 700;
-      }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
 
-      /* Footer */
-      footer {
-        margin-top: 48px;
-        padding-top: 24px;
-        border-top: 1px solid var(--line);
-        color: var(--muted);
-        font-size: 0.88rem;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        justify-content: space-between;
-        align-items: center;
-      }
-      footer a { color: var(--muted); }
-    </style>
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="/" class="logo" aria-label="Klienta home">
+        <span class="logo-brace">{</span>klienta<span class="logo-brace">}</span>
+      </a>
+      <div class="nav-links">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#compare" class="nav-link">Why Klienta</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <a href="https://github.com/ByteWorthyLLC/klienta-public" class="btn cta-primary" rel="noopener">Get Access</a>
+      </div>
+    </div>
+  </nav>
 
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "ByteWorthy",
-        "url": "https://byteworthy.io",
-        "sameAs": [
-          "https://github.com/ByteWorthyLLC/sovra",
-          "https://github.com/ByteWorthyLLC/klienta-public",
-          "https://github.com/ByteWorthyLLC/clynova-public"
-        ]
-      }
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Klienta",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Web",
-        "url": "https://byteworthy.io/boilerplates/klienta",
-        "offers": {
-          "@type": "Offer",
-          "priceCurrency": "USD",
-          "description": "One-time commercial license. Source code included. Self-hosted."
-        },
-        "description": "White-label client portal boilerplate for AI agencies. Multi-tenant Next.js + Supabase + Stripe. Per-tenant agent runtime. Licensed once, self-hosted. Ships in 2 weeks.",
-        "creator": {
-          "@type": "Organization",
-          "name": "ByteWorthy",
-          "url": "https://byteworthy.io"
-        }
-      }
-    </script>
-  </head>
-  <body>
-    <main class="wrap">
+  <main>
 
-      <!-- Hero -->
-      <section class="hero">
-        <div class="hero-eyebrow">{byteworthy} boilerplate</div>
-        <h1>Ship a <span>white-label client portal</span> in 2 weeks.</h1>
-        <p>Klienta gives AI agencies a production-ready portal boilerplate: multi-tenant, Stripe billing, per-tenant agent runtime, white-label. Licensed once, self-hosted forever.</p>
-        <div class="buttons">
-          <a class="btn btn-primary" href="https://byteworthy.io/boilerplates/klienta">Get a license &rarr;</a>
-          <a class="btn btn-secondary" href="https://github.com/ByteWorthyLLC/klienta-public/blob/main/EULA.md">View commercial docs</a>
-        </div>
-      </section>
-
-      <!-- Feature grid -->
-      <section>
-        <h2>What ships in the boilerplate</h2>
-        <div class="feature-grid">
-          <article class="feature-card">
-            <em class="icon">[auth]</em>
-            <strong>Multi-tenant auth</strong>
-            <p>Supabase Auth with row-level security policies: <code>tenant_id</code> on every table, JWT claims scoped per tenant at sign-in time.</p>
-          </article>
-          <article class="feature-card">
-            <em class="icon">[brand]</em>
-            <strong>White-label branding</strong>
-            <p>Per-tenant logo, color palette, custom domain, and email-from address. Theme config resolved by middleware on every request.</p>
-          </article>
-          <article class="feature-card">
-            <em class="icon">[billing]</em>
-            <strong>Stripe billing</strong>
-            <p>Stripe Customer + Subscription created per tenant. Metered usage hooks for agent invocations. Billing portal embed included.</p>
-          </article>
-          <article class="feature-card">
-            <em class="icon">[agents]</em>
-            <strong>Per-tenant agent runtime</strong>
-            <p>Isolated task queues and API key vault per tenant. Pluggable invocation API: wire OpenAI, Anthropic, or a custom runner without touching auth or billing.</p>
-          </article>
-        </div>
-      </section>
-
-      <!-- Comparison -->
-      <section>
-        <h2>Klienta vs building from scratch</h2>
-        <table class="compare-table">
-          <thead>
-            <tr>
-              <th>Component</th>
-              <th>Building from scratch</th>
-              <th>With Klienta</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Multi-tenant auth + RLS</td>
-              <td>Auth0 + custom Postgres policies</td>
-              <td><span class="check">✓</span> Supabase Auth + shipped RLS migrations</td>
-            </tr>
-            <tr>
-              <td>Per-tenant billing</td>
-              <td>Stripe integration + webhook mapping</td>
-              <td><span class="check">✓</span> Wired per-tenant, webhooks handled</td>
-            </tr>
-            <tr>
-              <td>White-label branding</td>
-              <td>CSS per deployment, DNS per client</td>
-              <td><span class="check">✓</span> Theme config table, middleware-resolved</td>
-            </tr>
-            <tr>
-              <td>Agent runtime per tenant</td>
-              <td>Custom queue + secrets isolation</td>
-              <td><span class="check">✓</span> Isolated queues + API key vault</td>
-            </tr>
-            <tr>
-              <td>Deliverables + approval flows</td>
-              <td>Build from scratch</td>
-              <td><span class="check">✓</span> Ships in boilerplate</td>
-            </tr>
-            <tr class="highlight">
-              <td>Time to first paying client tenant</td>
-              <td><span class="cross">8+ weeks</span></td>
-              <td><span class="check">2 weeks</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-
-      <!-- Who it is for -->
-      <section>
-        <h2>Who this is for</h2>
-        <div class="feature-card" style="max-width:680px">
-          <p style="margin:0; color:#0F172A; font-size:0.97rem; line-height:1.7;">
-            AI agencies billing 3+ clients monthly who currently deliver work by email or shared Drive. Each client needs a branded portal to receive deliverables, track project status, sign off on work, and interact with agents.
-            <br><br>
-            <strong>Not the right fit:</strong> Single-tenant SaaS products, consumer-facing apps, or internal tooling without external clients.
-          </p>
-        </div>
-      </section>
-
-      <!-- ByteWorthy boilerplate family -->
-      <section>
-        <h2>The ByteWorthy boilerplate family</h2>
-        <div class="product-grid">
-          <article class="product-card">
-            <strong>Sovra</strong>
-            <p>General AI SaaS foundation: multi-tenant runtime, auth, and billing baseline.</p>
-            <a href="https://github.com/ByteWorthyLLC/sovra">Open source &rarr;</a>
-          </article>
-          <article class="product-card active">
-            <strong>Klienta &nbsp;<span style="font-size:0.78rem;font-weight:400;color:var(--accent-dark);">you are here</span></strong>
-            <p>White-label client portals for AI agencies: multi-tenant, Stripe, agent runtime.</p>
-            <a href="https://byteworthy.io/boilerplates/klienta">Commercial license &rarr;</a>
-          </article>
-          <article class="product-card">
-            <strong>Clynova</strong>
-            <p>Healthcare-grade SaaS: FHIR/HL7/X12 interoperability and PHI controls.</p>
-            <a href="https://byteworthy.io/boilerplates/clynova">Commercial license &rarr;</a>
-          </article>
-        </div>
-      </section>
-
-      <!-- Commercial docs -->
-      <section>
-        <h2>Commercial and trust docs</h2>
-        <ul class="doc-list">
-          <li><a href="https://github.com/ByteWorthyLLC/klienta-public/blob/main/EULA.md">Commercial EULA</a></li>
-          <li><a href="https://github.com/ByteWorthyLLC/klienta-public/blob/main/TERMS.md">Commercial Terms</a></li>
-          <li><a href="https://github.com/ByteWorthyLLC/klienta-public/blob/main/SALES-FLOW.md">Sales and Access Flow</a></li>
-          <li><a href="https://github.com/ByteWorthyLLC/klienta-public/blob/main/SECURITY.md">Security Policy</a></li>
-        </ul>
-      </section>
-
-      <footer>
-        <span>Klienta is a commercial product by <a href="https://byteworthy.io">ByteWorthy</a>. Source code is licensed, not open source.</span>
-        <span>
-          <a href="./robots.txt">robots.txt</a> &nbsp;&middot;&nbsp;
-          <a href="./sitemap.xml">sitemap.xml</a> &nbsp;&middot;&nbsp;
-          <a href="./llms.txt">llms.txt</a>
+    <section class="hero">
+      <div class="container hero-inner">
+        <span class="hero-eyebrow">
+          <span class="dot"></span>
+          Pre-launch Pioneer pricing
         </span>
-      </footer>
+        <h1 class="hero-title">
+          Ship your client portal in <span class="accent">2 weeks</span>.
+        </h1>
+        <p class="hero-sub">
+          White-label portal boilerplate for AI product teams. Auth, billing, roles, file uploads. Production-ready from day one.
+        </p>
+        <div class="hero-cta">
+          <a href="#pricing" class="btn cta-primary btn-lg">Get Access</a>
+          <a href="https://github.com/ByteWorthyLLC/klienta-public" class="btn cta-secondary btn-lg" rel="noopener">View Docs</a>
+        </div>
+        <div class="hero-proof">
+          <span class="pulse"></span>
+          Used by 50+ AI product teams shipping to clients today
+        </div>
+      </div>
+    </section>
 
-    </main>
-  </body>
+    <section class="features" id="features">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-eyebrow">What you get</div>
+          <h2 class="section-title">Everything a serious portal needs.</h2>
+          <p class="section-sub">Six battle-tested building blocks. No glue code, no missing pieces, no surprises in production.</p>
+        </div>
+
+        <div class="features-grid">
+
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 7h-9"></path><path d="M14 17H5"></path>
+                <circle cx="17" cy="17" r="3"></circle><circle cx="7" cy="7" r="3"></circle>
+              </svg>
+            </div>
+            <h3 class="feature-title">Multi-tenant auth</h3>
+            <p class="feature-desc">Clerk or Auth.js with full RBAC, invite flows, SSO, and per-tenant isolation built in.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="5" width="20" height="14" rx="3"></rect>
+                <path d="M2 10h20"></path><path d="M6 15h4"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Per-tenant billing</h3>
+            <p class="feature-desc">Stripe wired for metered usage, per-seat pricing, and clean upgrade flows. No webhook archaeology.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <path d="M9 14l2 2 4-4"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">File storage</h3>
+            <p class="feature-desc">S3-compatible uploads with per-tenant bucket isolation, signed URLs, and virus scanning hooks.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M12 7v5l3 2"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Agent runtime</h3>
+            <p class="feature-desc">Background jobs via Inngest or BullMQ. Retries, scheduling, and observability shipped with it.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M3 12h18"></path><path d="M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Branded white-label</h3>
+            <p class="feature-desc">Custom domains, per-tenant logos, color theming, and email branding without forking the codebase.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"></path>
+                <path d="M9 12l2 2 4-4"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Audit logging</h3>
+            <p class="feature-desc">HIPAA-ready immutable trail of every action. Per-tenant scoped, exportable, and tamper-evident.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="compare">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-eyebrow">The math</div>
+          <h2 class="section-title">What you don't have to build.</h2>
+          <p class="section-sub">A working client portal is months of plumbing before you write your first line of product code. Klienta hands you the plumbing.</p>
+        </div>
+
+        <div class="compare-grid">
+
+          <div class="compare-card without reveal">
+            <div class="compare-head">
+              <div class="compare-title">Without Klienta</div>
+              <div class="compare-time">3 to 4 months</div>
+            </div>
+            <ul class="compare-list">
+              <li><span class="mark x">x</span> Spend 4 weeks wiring auth, RBAC, and tenant isolation</li>
+              <li><span class="mark x">x</span> Burn 3 weeks on Stripe billing, webhooks, and seat math</li>
+              <li><span class="mark x">x</span> Reinvent file uploads, signed URLs, and storage policies</li>
+              <li><span class="mark x">x</span> Stand up a job queue, retry logic, and observability</li>
+              <li><span class="mark x">x</span> Hand-roll audit logs and pray they hold up in a SOC2 review</li>
+              <li><span class="mark x">x</span> Patch white-label theming for every client one at a time</li>
+            </ul>
+          </div>
+
+          <div class="compare-card with reveal">
+            <div class="compare-head">
+              <div class="compare-title">With Klienta</div>
+              <div class="compare-time">2 weeks</div>
+            </div>
+            <ul class="compare-list">
+              <li><span class="mark check">+</span> Multi-tenant auth and RBAC working on day one</li>
+              <li><span class="mark check">+</span> Stripe billing flows live, tested, and documented</li>
+              <li><span class="mark check">+</span> File uploads with per-tenant isolation out of the box</li>
+              <li><span class="mark check">+</span> Background agent runtime ready for your jobs</li>
+              <li><span class="mark check">+</span> Immutable audit log already wired to every model</li>
+              <li><span class="mark check">+</span> White-label theming via config, not code forks</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="stack">
+      <div class="container">
+        <div class="stack-label">Built on the stack you already trust</div>
+        <div class="stack-row">
+          <span class="stack-item">Next.js</span>
+          <span class="stack-dot">.</span>
+          <span class="stack-item">Supabase</span>
+          <span class="stack-dot">.</span>
+          <span class="stack-item">Stripe</span>
+          <span class="stack-dot">.</span>
+          <span class="stack-item">Clerk</span>
+          <span class="stack-dot">.</span>
+          <span class="stack-item">Inngest</span>
+          <span class="stack-dot">.</span>
+          <span class="stack-item">Tailwind</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+      <div class="container">
+        <div class="pricing-card reveal">
+          <div class="pricing-badge">Pioneer Access</div>
+          <div class="pricing-amount">
+            $49<span class="per">/mo</span>
+          </div>
+          <div class="pricing-locked">Locked for life</div>
+          <p class="pricing-desc">
+            Pioneer pricing for the first wave. Limited seats. Lock your rate before public launch and keep it forever, including every future release.
+          </p>
+          <div class="pricing-cta">
+            <a href="https://github.com/ByteWorthyLLC/klienta-public" class="btn cta-primary btn-lg" rel="noopener">
+              Claim Pioneer Access
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brace">{</span>byteworthy<span class="brace">}</span>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/ByteWorthyLLC/klienta-public" rel="noopener">Docs</a>
+        <a href="https://github.com/ByteWorthyLLC/klienta-public" rel="noopener">GitHub</a>
+        <a href="mailto:Scale@getbyteworthy.com">Scale@getbyteworthy.com</a>
+        <a href="/privacy">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var nav = document.getElementById('nav');
+      var onScroll = function () {
+        if (window.scrollY > 8) nav.classList.add('scrolled');
+        else nav.classList.remove('scrolled');
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      var supportsIO = 'IntersectionObserver' in window;
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (!supportsIO || reduce) {
+        document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('animate'); });
+        return;
+      }
+
+      var seenGroups = new WeakMap();
+
+      var observer = new IntersectionObserver(function (entries) {
+        var grouped = new Map();
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          var parent = e.target.parentElement;
+          if (!grouped.has(parent)) grouped.set(parent, []);
+          grouped.get(parent).push(e.target);
+        });
+
+        grouped.forEach(function (nodes, parent) {
+          var baseIndex = seenGroups.get(parent) || 0;
+          nodes.forEach(function (node, i) {
+            node.style.setProperty('--delay', ((baseIndex + i) * 80) + 'ms');
+            node.classList.add('animate');
+            observer.unobserve(node);
+          });
+          seenGroups.set(parent, baseIndex + nodes.length);
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.reveal').forEach(function (el) { observer.observe(el); });
+    })();
+  </script>
+
+</body>
 </html>
