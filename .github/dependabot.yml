@@ -1,0 +1,18 @@
+version: 2
+updates:
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      day: "monday"
+      time: "06:00"
+      timezone: "America/New_York"
+    labels:
+      - "dependencies"
+      - "github-actions"
+      - "auto-merge"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    open-pull-requests-limit: 10
