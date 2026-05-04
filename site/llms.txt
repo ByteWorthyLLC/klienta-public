@@ -1,21 +1,23 @@
-# Klienta Public Site Mirror
+# Klienta — site mirror
 
-GitHub Pages mirror for Klienta trust and discoverability references.
+GitHub Pages mirror for the Klienta marketing surface and trust docs.
 
-- Mirror URL: https://byteworthyllc.github.io/klienta-public/
+- Mirror URL: https://byteworthyllc.github.io/klienta/
 - Canonical product page: https://byteworthy.io/boilerplates/klienta
 - Boilerplates hub: https://byteworthy.io/boilerplates
 - Services: https://byteworthy.io/services
 - Contact: https://byteworthy.io/contact
 
-## Repository Links
-- Klienta Public: https://github.com/ByteWorthyLLC/klienta-public
-- Klienta: private commercial source (provisioned after purchase)
-- Sovra: https://github.com/ByteWorthyLLC/sovra
-- Clynova Public: https://github.com/ByteWorthyLLC/clynova-public
+## Repository links
 
-## Trust Docs
-- EULA: https://github.com/ByteWorthyLLC/klienta-public/blob/main/EULA.md
-- Terms: https://github.com/ByteWorthyLLC/klienta-public/blob/main/TERMS.md
-- Security: https://github.com/ByteWorthyLLC/klienta-public/blob/main/SECURITY.md
-- Sales Flow: https://github.com/ByteWorthyLLC/klienta-public/blob/main/SALES-FLOW.md
+- Klienta (this repo, public trust surface): https://github.com/ByteWorthyLLC/klienta
+- Klienta source: private, license-gated (provisioned after purchase)
+- Sovra (open-source sibling): https://github.com/ByteWorthyLLC/sovra
+- Clynova (HIPAA-grade sibling boilerplate): https://github.com/ByteWorthyLLC/clynova
+
+## Trust docs
+
+- EULA: https://github.com/ByteWorthyLLC/klienta/blob/main/EULA.md
+- Terms: https://github.com/ByteWorthyLLC/klienta/blob/main/TERMS.md
+- Security: https://github.com/ByteWorthyLLC/klienta/blob/main/SECURITY.md
+- Sales flow: https://github.com/ByteWorthyLLC/klienta/blob/main/SALES-FLOW.md

@@ -1,24 +1,31 @@
-# Klienta Public
+# Klienta
 
-Public trust and commercial policy satellite for Klienta.
+Public trust and commercial policy surface for Klienta — the white-label client portal boilerplate for AI agencies (Next.js 15 + Supabase + Stripe + Go worker + AI SDK + Model Context Protocol).
 
-- Repository: https://github.com/ByteWorthyLLC/klienta-public
+- Repository: https://github.com/ByteWorthyLLC/klienta
 - Klienta product page: https://byteworthy.io/boilerplates/klienta
 - Boilerplates hub: https://byteworthy.io/boilerplates
 - Services: https://byteworthy.io/services
 - Contact: https://byteworthy.io/contact
-- GitHub Pages mirror: https://byteworthyllc.github.io/klienta-public/
+- GitHub Pages site: https://byteworthyllc.github.io/klienta/
 
-## Source Repositories
-- Klienta: private commercial source (provisioned after purchase)
-- Sovra: https://github.com/ByteWorthyLLC/sovra
-- Clynova Public: https://github.com/ByteWorthyLLC/clynova-public
+## License model
 
-## Public Trust Docs
-- README: https://github.com/ByteWorthyLLC/klienta-public/blob/main/README.md
-- Site mirror index: https://github.com/ByteWorthyLLC/klienta-public/blob/main/site/index.html
-- Site mirror llms: https://github.com/ByteWorthyLLC/klienta-public/blob/main/site/llms.txt
-- EULA: https://github.com/ByteWorthyLLC/klienta-public/blob/main/EULA.md
-- Terms: https://github.com/ByteWorthyLLC/klienta-public/blob/main/TERMS.md
-- Security: https://github.com/ByteWorthyLLC/klienta-public/blob/main/SECURITY.md
-- Sales Flow: https://github.com/ByteWorthyLLC/klienta-public/blob/main/SALES-FLOW.md
+Source-available commercial license. Source code is provisioned to a private GitHub repository after purchase. Self-hosted on the buyer's own Vercel + Supabase + Stripe accounts. No monthly fee to ByteWorthy after purchase. No telemetry.
+
+## Source repositories
+
+- Klienta source: private, license-gated (provisioned after purchase)
+- Sovra (open-source sibling, same multi-tenant lineage): https://github.com/ByteWorthyLLC/sovra
+- Clynova (HIPAA-grade sibling boilerplate): https://github.com/ByteWorthyLLC/clynova
+
+## Public trust docs
+
+- README: https://github.com/ByteWorthyLLC/klienta/blob/main/README.md
+- Site index: https://github.com/ByteWorthyLLC/klienta/blob/main/site/index.html
+- EULA: https://github.com/ByteWorthyLLC/klienta/blob/main/EULA.md
+- Terms: https://github.com/ByteWorthyLLC/klienta/blob/main/TERMS.md
+- Security: https://github.com/ByteWorthyLLC/klienta/blob/main/SECURITY.md
+- Public roadmap: https://github.com/ByteWorthyLLC/klienta/blob/main/ROADMAP.md
+- Sales / fulfillment flow: https://github.com/ByteWorthyLLC/klienta/blob/main/SALES-FLOW.md
+- Changelog: https://github.com/ByteWorthyLLC/klienta/blob/main/CHANGELOG.md

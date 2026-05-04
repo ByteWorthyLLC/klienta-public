@@ -11,17 +11,17 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://byteworthyllc.github.io/klienta-public/" />
+  <meta property="og:url" content="https://byteworthyllc.github.io/klienta/" />
   <meta property="og:title" content="Klienta: Ship your client portal in 2 weeks" />
   <meta property="og:description" content="White-label portal boilerplate for AI product teams. Auth, billing, roles, file uploads. Production-ready from day one." />
   <meta property="og:site_name" content="Klienta" />
-  <meta property="og:image" content="https://raw.githubusercontent.com/ByteWorthyLLC/klienta-public/main/.github/assets/klienta-hero.svg" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/ByteWorthyLLC/klienta/main/.github/assets/klienta-hero.svg" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Klienta: Ship your client portal in 2 weeks" />
   <meta name="twitter:description" content="White-label portal boilerplate for AI product teams. Auth, billing, roles, file uploads. Production-ready from day one." />
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/ByteWorthyLLC/klienta-public/main/.github/assets/klienta-hero.svg" />
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/ByteWorthyLLC/klienta/main/.github/assets/klienta-hero.svg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" /><!-- nosemgrep: html.security.audit.missing-integrity.missing-integrity -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><!-- nosemgrep: html.security.audit.missing-integrity.missing-integrity -->
@@ -628,7 +628,7 @@
         <a href="#features" class="nav-link">Features</a>
         <a href="#compare" class="nav-link">Why Klienta</a>
         <a href="#pricing" class="nav-link">Pricing</a>
-        <a href="https://github.com/ByteWorthyLLC/klienta-public" class="btn cta-primary" rel="noopener">Get Access</a>
+        <a href="https://github.com/ByteWorthyLLC/klienta" class="btn cta-primary" rel="noopener">Get Access</a>
       </div>
     </div>
   </nav>
@@ -649,11 +649,11 @@
         </p>
         <div class="hero-cta">
           <a href="#pricing" class="btn cta-primary btn-lg">Get Access</a>
-          <a href="https://github.com/ByteWorthyLLC/klienta-public" class="btn cta-secondary btn-lg" rel="noopener">View Docs</a>
+          <a href="https://github.com/ByteWorthyLLC/klienta" class="btn cta-secondary btn-lg" rel="noopener">View Docs</a>
         </div>
         <div class="hero-proof">
           <span class="pulse"></span>
-          Used by 50+ AI product teams shipping to clients today
+          Source-available · self-hosted · no platform lock-in · no telemetry
         </div>
       </div>
     </section>
@@ -676,7 +676,7 @@
               </svg>
             </div>
             <h3 class="feature-title">Multi-tenant auth</h3>
-            <p class="feature-desc">Clerk or Auth.js with full RBAC, invite flows, SSO, and per-tenant isolation built in.</p>
+            <p class="feature-desc">Supabase Auth with row-level security, JWT <code>tenant_id</code> claim middleware, and shipped invite flows.</p>
           </article>
 
           <article class="feature-card reveal">
@@ -699,7 +699,7 @@
               </svg>
             </div>
             <h3 class="feature-title">File storage</h3>
-            <p class="feature-desc">S3-compatible uploads with per-tenant bucket isolation, signed URLs, and virus scanning hooks.</p>
+            <p class="feature-desc">Supabase Storage with per-tenant isolation via RLS, signed URLs for download-gated deliverables.</p>
           </article>
 
           <article class="feature-card reveal">
@@ -710,7 +710,7 @@
               </svg>
             </div>
             <h3 class="feature-title">Agent runtime</h3>
-            <p class="feature-desc">Background jobs via Inngest or BullMQ. Retries, scheduling, and observability shipped with it.</p>
+            <p class="feature-desc">Vercel AI SDK + Model Context Protocol, isolated per-tenant queues, Go worker for long-running jobs.</p>
           </article>
 
           <article class="feature-card reveal">
@@ -732,7 +732,7 @@
               </svg>
             </div>
             <h3 class="feature-title">Audit logging</h3>
-            <p class="feature-desc">HIPAA-ready immutable trail of every action. Per-tenant scoped, exportable, and tamper-evident.</p>
+            <p class="feature-desc">Append-only audit log on every tenant action with before/after diff. Per-tenant scoped and queryable.</p>
           </article>
 
         </div>
@@ -787,15 +787,15 @@
       <div class="container">
         <div class="stack-label">Built on the stack you already trust</div>
         <div class="stack-row">
-          <span class="stack-item">Next.js</span>
+          <span class="stack-item">Next.js 15</span>
           <span class="stack-dot">.</span>
           <span class="stack-item">Supabase</span>
           <span class="stack-dot">.</span>
           <span class="stack-item">Stripe</span>
           <span class="stack-dot">.</span>
-          <span class="stack-item">Clerk</span>
+          <span class="stack-item">AI SDK</span>
           <span class="stack-dot">.</span>
-          <span class="stack-item">Inngest</span>
+          <span class="stack-item">MCP</span>
           <span class="stack-dot">.</span>
           <span class="stack-item">Tailwind</span>
         </div>
@@ -805,17 +805,17 @@
     <section class="pricing" id="pricing">
       <div class="container">
         <div class="pricing-card reveal">
-          <div class="pricing-badge">Pioneer Access</div>
+          <div class="pricing-badge">Commercial license</div>
           <div class="pricing-amount">
-            $49<span class="per">/mo</span>
+            One-time<span class="per"> · self-hosted</span>
           </div>
-          <div class="pricing-locked">Locked for life</div>
+          <div class="pricing-locked">No monthly fee to ByteWorthy</div>
           <p class="pricing-desc">
-            Pioneer pricing for the first wave. Limited seats. Lock your rate before public launch and keep it forever, including every future release.
+            Buy the source once. Self-host on your own Vercel + Supabase + Stripe accounts. No platform lock-in, no telemetry, no per-seat upcharge from us.
           </p>
           <div class="pricing-cta">
-            <a href="https://github.com/ByteWorthyLLC/klienta-public" class="btn cta-primary btn-lg" rel="noopener">
-              Claim Pioneer Access
+            <a href="https://byteworthy.io/boilerplates/klienta" class="btn cta-primary btn-lg" rel="noopener">
+              See pricing &amp; get a license
               <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
@@ -831,8 +831,8 @@
         <span class="brace">{</span>byteworthy<span class="brace">}</span>
       </div>
       <div class="footer-links">
-        <a href="https://github.com/ByteWorthyLLC/klienta-public" rel="noopener">Docs</a>
-        <a href="https://github.com/ByteWorthyLLC/klienta-public" rel="noopener">GitHub</a>
+        <a href="https://github.com/ByteWorthyLLC/klienta" rel="noopener">Docs</a>
+        <a href="https://github.com/ByteWorthyLLC/klienta" rel="noopener">GitHub</a>
         <a href="mailto:Scale@getbyteworthy.com">Scale@getbyteworthy.com</a>
         <a href="/privacy">Privacy</a>
       </div>
