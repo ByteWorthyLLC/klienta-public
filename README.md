@@ -10,10 +10,10 @@ Multi-tenant Next.js + Supabase + Stripe + per-tenant agent runtime — ship fea
 [![License](https://img.shields.io/badge/license-commercial-D4A574?style=flat-square&labelColor=0F172A)](./EULA.md)
 [![Stack](https://img.shields.io/badge/Next.js%2015-Supabase-D4A574?style=flat-square&labelColor=0F172A)](#the-stack)
 [![Multi-tenant](https://img.shields.io/badge/multi--tenant-RLS%20%2B%20JWT%20claims-B8875A?style=flat-square&labelColor=0F172A)](#how-it-composes)
-[![Boilerplate](https://img.shields.io/badge/ByteWorthy-boilerplate-0F172A?style=flat-square&labelColor=D4A574)](https://byteworthy.io/boilerplates/klienta)
+[![Boilerplate](https://img.shields.io/badge/ByteWorthy-blueprint-0F172A?style=flat-square&labelColor=D4A574)](https://byteworthy.io/blueprints/klienta)
 
-[**Get a license&nbsp;→**](https://byteworthy.io/boilerplates/klienta)
-&nbsp;·&nbsp; [Live site](https://byteworthyllc.github.io/klienta/)
+[**Get a license&nbsp;→**](https://byteworthy.io/blueprints/klienta)
+&nbsp;·&nbsp; [Product page](https://byteworthy.io/blueprints/klienta)
 &nbsp;·&nbsp; [What ships](#what-ships-in-the-boilerplate)
 &nbsp;·&nbsp; [Quick start](#quick-start-after-license)
 &nbsp;·&nbsp; [FAQ](#faq)
@@ -117,7 +117,7 @@ pnpm onboarding:day0       # bootstrap an empty tenant + admin invite
 pnpm staging:smoke         # end-to-end smoke check against staging
 ```
 
-> Source code is provisioned to a private GitHub repository after license purchase at [byteworthy.io/boilerplates/klienta](https://byteworthy.io/boilerplates/klienta).
+> Source code is provisioned to a private GitHub repository after license purchase at [byteworthy.io/blueprints/klienta](https://byteworthy.io/blueprints/klienta).
 
 ## The stack
 
@@ -158,7 +158,7 @@ It is **not** the right fit if:
 
 One-time commercial license. Source code included. Self-host on your own Vercel + Supabase + Stripe accounts. No monthly seat fee to ByteWorthy.
 
-[**See current pricing tiers&nbsp;→**](https://byteworthy.io/boilerplates/klienta)
+[**See current pricing tiers&nbsp;→**](https://byteworthy.io/blueprints/klienta)
 
 After purchase, source is provisioned to a private GitHub repository invited to your account.
 
@@ -220,7 +220,7 @@ You own the source. Edit it. We accept change requests for the upstream boilerpl
 
 ## Related projects · the ByteWorthy boilerplate family
 
-Three boilerplates, one architectural lineage. Pick the one that matches your buyer.
+Three blueprints, one architectural lineage. Pick the one that matches your buyer.
 
 | Boilerplate | For | License |
 |---|---|---|
@@ -240,8 +240,8 @@ ByteWorthy also ships **open-source AI security tools** alongside the boilerplat
 
 | Surface | URL |
 |---|---|
-| Product page | [byteworthy.io/boilerplates/klienta](https://byteworthy.io/boilerplates/klienta) |
-| Live site | [byteworthyllc.github.io/klienta](https://byteworthyllc.github.io/klienta/) |
+| Product page | [byteworthy.io/blueprints/klienta](https://byteworthy.io/blueprints/klienta) |
+| Live site | [byteworthy.io/blueprints/klienta](https://byteworthy.io/blueprints/klienta) |
 | EULA | [`EULA.md`](./EULA.md) |
 | Terms | [`TERMS.md`](./TERMS.md) |
 | Security policy | [`SECURITY.md`](./SECURITY.md) |
@@ -252,7 +252,7 @@ ByteWorthy also ships **open-source AI security tools** alongside the boilerplat
 
 ## Maintainer
 
-Built and maintained by **[ByteWorthy LLC](https://byteworthy.io)** — boilerplates and open-source tools for AI builders.
+Built and maintained by **[ByteWorthy LLC](https://byteworthy.io)** — blueprints and open-source tools for AI builders.
 
 [Contributing](./CHANGELOG.md) · [Security policy](./SECURITY.md) · [EULA](./EULA.md) · [Terms](./TERMS.md)
 
